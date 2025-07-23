@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+body {
+  font-family: Arial, sans-serif;
+  background-image: url(/static/imagens/NaLamina.-fundo.jpg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: white;
+  margin: 0;
+}
+
+.imagem{
+  width: 150px;
+    height: 150px;
+    margin: auto;
+    display: block;
+    transition: transform 0.20s linear;
+    cursor: pointer;
+}
+
+.imagem:hover{
+    transform: scale(1.2);
+}
+
+.imagem:hover{
+    border: 1px solid #34db66;
+    border-radius: 100px;
+}
+
+.login-box {
+  background-color: #1e1e1e;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(14, 13, 13, 0.2);
+  width: 300px;
+}
+
+.login-box h1 {
+  font-size: 25px;
+  text-align: center;
+  margin-bottom: 20px;
+  font-family: "Spectral", serif;
+}
+.login-box h2{
+  text-align: center;
+  margin-bottom: 20px;
+  font-family: "Spectral", "serif";
+}
+
+.login-box label {
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.login-box input,
+.login-box select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #e2e1e1;
+  border-radius: 5px;
+}
+
+.login-box button {
+  margin-top: 20px;
+  width: 200px;
+  margin: 20px auto;
+  display: block;
+  padding: 10px;
+  background-color: #34db66;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.login-box button:hover {
+  background-color: #2980b9;
+}
+
+/* NOVO: Escurecendo o seletor de bandeira */
+.iti__selected-flag {
+  background-color: #333 !important;
+  color: #fff;
+  border-radius: 5px 0 0 5px;
+}
+
+.iti__flag-container {
+  background-color: #333;
+  border-radius: 5px 0 0 5px;
+}

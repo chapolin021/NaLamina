@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> NaLamina</title>
+    <link rel="stylesheet" href="/static/Nalamina-teste.css">
+    <link rel="shortcut icon" href="/static/imagens/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <img src="/static/imagens/NaLamina-logo.png" alt="Logo NaLamina" class="logo">
+        <h1>NaLamina</h1>
+        <p>Estilo e qualidade em cada corte</p>
+    </header>
+    <nav>
+        <a href="#servicos">Serviços</a>
+        <a href="#agendamento">Agendamento</a>
+        <a href="#detalhes">Contato</a>
+        <a href="{{ url_for('login') }}">Sair</a>
+    </nav>
+
+    <main class="container">
+        <section id="servicos">
+            <h2>Serviços</h2>
+
+            <div class="lista-servicos">
+
+                <div class="servico">
+                    <div class="info">
+                        <h3>Corte Degrade (0)</h3>
+                        <p class="preco">R$ 25,00</p>
+                        <p class="tempo">⏱ 45 min</p>
+                    </div>
+                    <a href="#agendamento" class="btn-agendar">Agendar</a>
+                </div>
+
+                <div class="servico">
+                    <div class="info">
+                        <h3>Corte Degrade Navalhado</h3>
+                        <p class="preco">R$ 30,00</p>
+                        <p class="tempo">⏱ 45 min</p>
+                    </div>
+                    <a href="#agendamento" class="btn-agendar">Agendar</a>
+                </div>
+
+                <div class="servico">
+                    <div class="info">
+                        <h3>Alisamento com Corte</h3>
+                        <p class="preco">R$ 105,00</p>
+                        <p class="tempo">⏱ 45 min</p>
+                    </div>
+                    <a href="#agendamento" class="btn-agendar">Agendar</a>
+                </div>
+
+                <div class="servico">
+                    <div class="info">
+                        <h3>Barba</h3>
+                        <p class="preco">R$ 20,00</p>
+                        <p class="tempo">⏱ 15 min</p>
+                    </div>
+                    <a href="#agendamento" class="btn-agendar">Agendar</a>
+                </div>
+
+                <div class="servico">
+                    <div class="info">
+                        <h3>Barboterapia</h3>
+                        <p class="preco">R$ 35,00</p>
+                        <p class="tempo">⏱ 15 min</p>
+                    </div>
+                <button onclick="agendar()" class="botao">
+                    <a href="#agendamento" class="btn-agendar">Agendar</a>
+                </button>  
+                </div>
+
+                <div class="servico">
+                    <div class="info">
+                        <h3>Pezinho</h3>
+                        <p class="preco">R$ 7,00</p>
+                        <p class="tempo">⏱ 45 min</p>
+                    </div>
+                    <a href="#agendamento" class="btn-agendar">Agendar</a>
+                </div>
+            </div>
+        </section>
+
+        <div id="modal" class="modal">
+            <div class="modal-conten">
+                <span class="close">&times;</span>
+                <h2>Agendamento</h2>
+                <section id="calendario">
+                    <h3>Escolha uma data</h3>
+
+                    <!-- ✅ Mês inserido corretamente aqui -->
+                    <h4 id="mesAtual">Mês Atual</h4>
+
+                    <div class="calendario-container">
+                        <button class="btn-nav" onclick="voltarDia()">&#8592;</button>
+                        <div class="dias" id="dias">
+                            <!-- Os dias serão preenchidos por JavaScript -->
+                        </div>
+                        <button class="btn-nav" onclick="avancarDia()">&#8594;</button>
+                    </div>
+                </section>
+                <p>Por favor, preencha o formulário abaixo para agendar seu horário.</p>
+            </div>
+
+            <div class="img-hora">
+                <img src="/static/imagens/NaLamina-logo.png" alt="hora 1" class="opcao-horario" data-horario='hora 1' width="120">
+                <img src="/static/imagens/NaLamina-logo.png" alt="hora 2" class="opcao-horario" data-horario="hora 2" width="120">
+            </div>
+            <p id="horario-selecionado"></p>
+        </div>
+         <div id="scheduleModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+
+            <div class="calendar-header">
+                <button class="arrow" id="prevMonth">&leftarrow;</button>
+                <h2 id="currentMonthYear">Julho 2025</h2>
+                <button class="arrow" id="nextMonth">&rightarrow;</button>
+            </div>
+
+            <div class="calendar-days" id="calendarDays">
+                <div class="day-name">Ter</div>
+                <div class="day-name">Qua</div>
+                <div class="day-name">Qui</div>
+                <div class="day-name">Sex</div>
+                <div class="day-name">Sab</div>
+                <div class="day-name">Dom</div>
+                <div class="day-name">Seg</div>
+            </div>
+
+            <p class="select-professional-text">Selecione um profissional</p>
+            <div class="professional-list" id="professionalList">
+                <div class="professional-card">
+                    <img src="https://via.placeholder.com/60" alt="Arthur">
+                    <span>Arthur</span>
+                </div>
+                <div class="professional-card">
+                    <img src="https://via.placeholder.com/60" alt="Daniel">
+                    <span>Daniel</span>
+                </div>
+                <div class="professional-card">
+                    <img src="https://via.placeholder.com/60" alt="Gabriel">
+                    <span>Gabriel</span>
+                </div>
+                <div class="professional-card">
+                    <img src="https://via.placeholder.com/60" alt="Pedro (P7)">
+                    <span>Pedro (P7)</span>
+                </div>
+                <div class="professional-card">
+                    <img src="https://via.placeholder.com/60" alt="Tálisson">
+                    <span>Tálisson</span>
+                </div>
+                <div class="professional-card">
+                    <img src="https://via.placeholder.com/60" alt="Vinicius">
+                    <span>Vinicius</span>
+                </div>
+            </div>
+
+            <div id="timeSlotsSection" class="time-slots-section">
+                <p class="select-time-text">Selecione um horário</p>
+                <div id="timeSlots" class="time-slots-grid">
+                    <!-- Horários serão preenchidos dinamicamente -->
+                </div>
+            </div>
+
+            <div class="info-message">
+                <p id="currentInfoMessage">Escolha um profissional para buscar os horários disponíveis para agendamento</p>
+            </div>
+
+            <button id="confirmScheduleBtn" class="confirm-button" disabled>Confirmar Agendamento</button>
+        </div>
+    </div>
+
+        <section id="detalhes">
+            <h2>Detalhes do Estabelecimento</h2>
+
+            <div class="detalhe">
+                <h3>📍 Localização</h3>
+                <p>Quadra AR 9 Conjunto 1, 10 - Setor Oeste (Sobradinho II) - Brasília/DF</p>
+            </div>
+
+            <div class="detalhe">
+                <h3>⏰ Horário de Atendimento</h3>
+                <p>Seg a Sáb - 09:00 às 19:00</p>
+            </div>
+
+            <div class="detalhe">
+                <h3>💳 Formas de Pagamento</h3>
+                <div class="pagamentos">
+                    <span>Dinheiro</span>
+                    <span>Cartão de Crédito</span>
+                    <span>Cartão de Débito</span>
+                    <span>PIX</span>
+                </div>
+            </div>
+
+            <div class="detalhe">
+                <h3>📱 Redes Sociais</h3>
+                <div class="redes">
+                    <a href="https://wa.me/5599999999999" target="_blank" title="WhatsApp">
+                        <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
+                    </a>
+                    <a href="https://www.instagram.com/zapdev_?igsh=MWc2ZHg3Ymc1bWVrNQ%3D%3D&utm_source=qr" target="_self" title="Instagram">
+                        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 DN Cortes. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="/static/script-teste.js"></script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+body {
+  font-family: Arial, sans-serif;
+  background-image: url(/static/imagens/NaLamina.-fundo.jpg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: white;
+}
+.NaLamina{
+  font-family: 'Spectral', cursive;
+  font-size: 23px;
+}
+
+.login-box {
+  background-color: #1e1e1e;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(14, 13, 13, 0.2);
+  width: 300px;
+}
+
+.imagem{
+    width: 100px;
+    height: 100px;
+    margin: auto;
+    display: block;
+    transition: transform 0.20s linear;
+    cursor: pointer;
+}
+
+.imagem:hover{
+    transform: scale(1.2);
+}
+
+.imagem:hover{
+    border: 1px solid #34db66;
+    border-radius: 100px;
+}
+
+.login-box h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.login-box label {
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.login-box input,
+.login-box select {
+  width: 100%;
+  margin-top: 10px;
+  padding: 8px;
+  border: 1px solid #e2e1e1;
+  border-radius: 5px;
+}
+
+.login-box button {
+  width: 200px;
+  margin: 20px auto 0px;
+  display: block;
+  padding: 10px;
+  background-color: #34db66;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#mensagem{
+  text-align: center;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.cadastro{
+  text-align: center;
+}
+
+.cadastro a{
+  text-decoration: none;
+  color: #34db66;
+  font-weight: 500;
+  transition: all 0.75 ease;
+}
+.link{
+    text-decoration: none;
+}
+
+.login-box button:hover {
+  background-color: #2980b9;
+}

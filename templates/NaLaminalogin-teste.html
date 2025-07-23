@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>NaLamina</title>
+  <link rel="shortcut icon" href="{{ url_for('static', filename='imagens/favicon.ico') }}" type="image/x-icon">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/NaLamina-login-teste.css') }}">
+</head>
+<body>
+
+  <div class="login-box">
+    <a href="https://www.instagram.com/zapdev_">
+      <img src="{{ url_for('static', filename='imagens/NaLamina-logo.png') }}" alt="Logo NaLamina" class="imagem
+  ">
+    </a>
+    <h2 class="NaLamina">NaLamina</h2>
+    
+    <form id="loginForm" action="/login" method="post" onsubmit="return  verificarLogin(event)">
+      <label for="gmail">Gmail:</label>
+      <input type="email" id="gmail" name="gmail" placeholder="exemplo@gmail.com" required>
+      
+      <label for="senha">Senha:</label>
+      <input type="password" id="senha" name="senha" placeholder="Senha" required>
+      
+      <button type="submit">Entrar</button>
+      <p id="mensagem"></p>
+    </form>
+
+    {% if erro %}
+  <p id="mensagem" style="color: red;">{{ erro }}</p>
+    {% endif %}
+
+    <div class="cadastro">
+      <p><a href="{{ url_for('cadastro_pagina') }}">Cadastre-se</a></p>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='js/script-teste.js') }}"></script>
+</body>
+</html>
